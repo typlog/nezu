@@ -1,0 +1,25 @@
+{% from "macros.j2" import render_social_icons %}
+
+<div class="info h-card">
+  <div class="inner">
+    {% if site.logo %}
+      <a class="info_logo" href="{{ linkify('/') }}">
+        <img class="u-photo" src="{{ site.logo.src|thumbnail('ss') }}" alt="{{ site.name }}">
+      </a>
+    {% endif %}
+    <div class="info_main">
+      <h1 class="info_title"><a class="p-name u-url" rel="me" href="{{ linkify('/') }}">{{ site.name }}</a></h1>
+      {% if site.summary %}
+        <h2 class="info_subtitle p-note">{{ site.summary }}</h2>
+      {% endif %}
+      <div class="info_social">
+        {{ render_social_icons(site) }}
+        {% if features.post %}
+          <div class="info_subscribe">
+            <button class="js-subscribe" data-feed="{{ linkify('/feed.xml') }}">Subscribe</button>
+          </div>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+</div>

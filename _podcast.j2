@@ -1,0 +1,30 @@
+{% set podcast = site.podcast %}
+<div class="info h-card">
+  <div class="inner">
+    {% if podcast.image %}
+      <a class="info_logo" href="{{ linkify('/episodes/') }}">
+        <img class="u-photo" src="{{ podcast.image|thumbnail('ss') }}" alt="{{ podcast.title }}">
+      </a>
+    {% endif %}
+    <div class="info_main">
+      <h1 class="info_title"><a class="p-name u-url" rel="me" href="{{ linkify('/') }}">{{ podcast.title }}</a></h1>
+      {% if podcast.subtitle %}
+        <h2 class="info_subtitle p-note">{{ podcast.subtitle }}</h2>
+      {% endif %}
+    </div>
+  </div>
+  <div class="inner">
+    <nav class="podcast_links">
+      <a href="{{ linkify('/episodes/feed.xml') }}">
+        <i class="icon icon-feed" aria-hidden="true"></i>
+        <span>RSS</span>
+      </a>
+      {%- for item in podcast.links -%}
+        <a href="{{ item.url }}"{% if item.blank %} target="_blank"{% endif %}>
+          <i class="icon icon-{{ item.icon }}" aria-hidden="true"></i>
+          <span>{{ item.title }}</span>
+        </a>
+      {%- endfor -%}
+    </nav>
+  </div>
+</div>

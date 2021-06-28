@@ -1,0 +1,27 @@
+{% from "macros.j2" import render_item, render_navigation with context %}
+
+{% block style %}
+  <link href="https://fonts.googleapis.com/css?family=Roboto:300,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="{{ static_url }}nezu.css">
+{% endblock %}
+
+{% block body %}
+  {% include "gh:typlog/nezu/_head.j2" %}
+  {% if page.type == 'tag' %}
+  {% elif page.type == 'author' %}
+  {% elif page.type == 'episode_list' %}
+    {% include "gh:typlog/nezu/_podcast.j2" %}
+  {% else %}
+    {% include "gh:typlog/nezu/_site.j2" %}
+  {% endif %}
+  <div class="main">
+    <div class="inner">
+      {% for subject in page.items %}
+        {{ render_item(subject) }}
+      {% endfor %}
+      {{ render_navigation(page) }}
+    </div>
+  </div>
+  {% include "_snippets/site_foot.j2" %}
+  {% include "_snippets/brand_foot.j2" %}
+{% endblock %}

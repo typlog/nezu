@@ -1,0 +1,15 @@
+<div class="head">
+  <div class="inner">
+    <a class="head_logo" href="{{ linkify('/') }}">{{ site.name }}</a>
+    <div class="head_links">
+      {% for nav in site.nav_links -%}
+        <a href="{{ nav.url }}" {% if nav.blank %} target="_blank"{% endif %}>{{ nav.title }}</a>
+      {% endfor %}
+      {% if features.algolia %}
+        <a href="#" class="head_search js-search" data-id="{{ site.algolia_id }}" data-key="{{ site.algolia_key }}">
+          <i class="icon icon-search" aria-label="Search"></i>
+        </a>
+      {% endif %}
+    </div>
+  </div>
+</div>
