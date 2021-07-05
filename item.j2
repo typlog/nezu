@@ -33,9 +33,11 @@
           {% endif %}
         </div>
       </article>
-      <div class="entry-block">
-        {% include "_snippets/subject_share.j2" %}
-      </div>
+      {% if page.type != 'page' %}
+        <div class="entry-block">
+          {% include "_snippets/subject_share.j2" %}
+        </div>
+      {% endif %}
     </div>
     {% include "_snippets/subject_foot.j2" %}
   </div>

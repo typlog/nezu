@@ -13,12 +13,12 @@
         <h2 class="info_subtitle p-note">{{ site.summary }}</h2>
       {% endif %}
       <div class="info_social">
-        {{ render_social_icons(site) }}
         {% if features.post %}
           <div class="info_subscribe">
             <button class="js-subscribe" data-feed="{{ linkify('/feed.xml') }}">Subscribe</button>
           </div>
         {% endif %}
+        {{ render_social_icons(site) }}
       </div>
     </div>
   </div>
