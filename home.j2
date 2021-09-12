@@ -6,8 +6,8 @@
 {% endblock %}
 
 {% block body %}
-  {% include "gh:typlog/nezu/_head.j2" %}
-  {% include "gh:typlog/nezu/_site.j2" %}
+  {% include "./_head.j2" %}
+  {% include "./_site.j2" %}
   <div class="main">
     <div class="inner">
       {% set subjects = query.latest_subjects() %}

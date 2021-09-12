@@ -6,13 +6,13 @@
 {% endblock %}
 
 {% block body %}
-  {% include "gh:typlog/nezu/_head.j2" %}
+  {% include "./_head.j2" %}
   {% if page.type == 'tag' %}
   {% elif page.type == 'author' %}
   {% elif page.type == 'episode_list' %}
-    {% include "gh:typlog/nezu/_podcast.j2" %}
+    {% include "./_podcast.j2" %}
   {% else %}
-    {% include "gh:typlog/nezu/_site.j2" %}
+    {% include "./_site.j2" %}
   {% endif %}
   <div class="main">
     <div class="inner">
