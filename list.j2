@@ -5,10 +5,48 @@
   <link rel="stylesheet" href="{{ static_url }}nezu.css">
 {% endblock %}
 
+{% macro render_author_head(user) %}
+  <div class="p-author h-card" itemscope itemtype="http://schema.org/Person">
+    {% if user.avatar %}
+      <div class="author_image">
+        <img class="u-photo" itemprop="image" src="{{ user.avatar|thumbnail('ss') }}" alt="{{ user.name }}">
+      </div>
+    {% endif %}
+    <div class="author_main">
+      <div class="author_meta">
+        <strong class="p-name" itemprop="name">{{ user.name }}</strong>
+        {% if user.metadata.twitter %}
+          <a href="https://twitter.com/{{ user.metadata.twitter }}">
+            <i class="icon icon-twitter" aria-label="Twitter"></i>
+          </a>
+        {% endif %}
+      </div>
+      {% if user.bio %}
+        <div class="author_bio" itemprop="description">{{ user.bio|safe }}</div>
+      {% endif %}
+    </div>
+  </div>
+{% endmacro %}
+
+{% macro render_tag_head(tag) %}
+  <h1 class="info_title">{{ tag.title }}</h1>
+  {% if tag.summary %}<h2 class="info_subtitle">{{ tag.summary }}</h2>{% endif %}
+{% endmacro %}
+
 {% block body %}
   {% include "./_head.j2" %}
   {% if page.type == 'tag' %}
+    <div class="info">
+      <div class="inner">
+        {{ render_tag_head(page.topic) }}
+      </div>
+    </div>
   {% elif page.type == 'author' %}
+    <div class="info">
+      <div class="entry-author inner">
+        {{ render_author_head(page.topic) }}
+      </div>
+    </div>
   {% elif page.type == 'episode_list' %}
     {% include "./_podcast.j2" %}
   {% else %}

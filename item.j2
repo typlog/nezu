@@ -1,4 +1,4 @@
-{% from "macros.j2" import render_subject_content %}
+{% from "macros.j2" import render_subject_content, render_subject_license, render_subject_collaborators %}
 
 {% block style %}
   <link href="https://fonts.googleapis.com/css?family=Roboto:300,400&display=swap" rel="stylesheet">
@@ -10,6 +10,9 @@
   <div class="main">
     <div class="inner">
       <article role="main" class="h-entry" itemscope itemtype="http://schema.org/Article">
+        {% if page.type == 'audio' %}
+          {{ render_subject_collaborators(site, page) }}
+        {% endif %}
         <div class="entry-meta">
           {% if page.type == 'audio' %}
             {% if page.season and page.episode %}
@@ -32,6 +35,19 @@
             {% include "_snippets/page_qr.j2" %}
           {% endif %}
         </div>
+        {% if page.tags %}
+          <div class="entry-tags">
+            {% for tag in page.tags %}
+              <a class="p-category" href="{{ linkify(tag.url) }}">{{ tag.title }}</a>
+            {% endfor %}
+          </div>
+        {% endif %}
+        {% if page.type == 'post' %}
+          <div class="entry-collaborators">
+            {{ render_subject_collaborators(site, page) }}
+          </div>
+          {{ render_subject_license(site, page) }}
+        {% endif %}
       </article>
       {% if page.type != 'page' %}
         <div class="entry-block">
