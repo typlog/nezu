@@ -7,6 +7,14 @@
 
 {% block body %}
   {% include "./_head.j2" %}
+  {% if page.cover and page.cover.src %}
+    <div class="entry-cover js-cover" data-src="{{ page.cover.src|thumbnail }}"
+         data-width="{{ page.cover.width }}" data-height="{{ page.cover.height }}">
+      <img class="u-photo" src="{{ page.cover.src|thumbnail }}" alt="{{ page.title }}">
+    </div>
+  {% else %}
+    {% include "./_site.j2" %}
+  {% endif %}
   <div class="main">
     <div class="inner">
       <article role="main" class="h-entry" itemscope itemtype="http://schema.org/Article">
