@@ -4,7 +4,7 @@
   "name#zh": "根津",
   "author": "Typlog",
   "repo": "typlog/nezu",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "features": {
     "post": true,
     "audio": true,
