@@ -1,4 +1,4 @@
-{% from "macros.j2" import render_subject_content, render_subject_license, render_subject_collaborators %}
+{% from "macros.j2" import render_subject_content, render_subject_license, render_subject_authors %}
 
 {% block style %}
   <link href="https://fonts.googleapis.com/css?family=Roboto:300,400&display=swap" rel="stylesheet">
@@ -19,7 +19,7 @@
     <div class="inner">
       <article role="main" class="h-entry" itemscope itemtype="http://schema.org/Article">
         {% if page.type == 'audio' %}
-          {{ render_subject_collaborators(site, page) }}
+          {{ render_subject_authors(site, page) }}
         {% endif %}
         <div class="entry-meta">
           {% if page.type == 'audio' %}
@@ -51,9 +51,7 @@
           </div>
         {% endif %}
         {% if page.type == 'post' %}
-          <div class="entry-collaborators">
-            {{ render_subject_collaborators(site, page) }}
-          </div>
+          {{ render_subject_authors(site, page) }}
           {{ render_subject_license(site, page) }}
         {% endif %}
       </article>
