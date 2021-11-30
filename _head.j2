@@ -2,11 +2,10 @@
   <div class="inner">
     <a class="head_logo" href="{{ linkify('/') }}">{{ site.name }}</a>
     <div class="head_links">
-      {% if features.algolia %}
-        <a href="#" class="head_search js-search" data-id="{{ site.algolia_id }}" data-key="{{ site.algolia_key }}">
-          <i class="icon icon-search" aria-label="Search"></i>
-        </a>
-      {% endif %}
+      <a href="#" class="head_search js-search"
+        {% if features.algolia data-id="{{ site.algolia_id }}" data-key="{{ site.algolia_key }}"{% endif %}>
+        <i class="icon icon-search" aria-label="Search"></i>
+      </a>
       {% if site.nav_links %}
         <label for="nav-links" aria-label="Navigation">
           <i class="icon icon-menu"></i>
