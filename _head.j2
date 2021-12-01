@@ -3,7 +3,7 @@
     <a class="head_logo" href="{{ linkify('/') }}">{{ site.name }}</a>
     <div class="head_links">
       <a href="#" class="head_search js-search"
-        {% if features.algolia data-id="{{ site.algolia_id }}" data-key="{{ site.algolia_key }}"{% endif %}>
+        {% if features.algolia %}data-id="{{ site.algolia_id }}" data-key="{{ site.algolia_key }}"{% endif %}>
         <i class="icon icon-search" aria-label="Search"></i>
       </a>
       {% if site.nav_links %}
