@@ -6,13 +6,13 @@
         {% if features.algolia %}data-id="{{ site.algolia_id }}" data-key="{{ site.algolia_key }}"{% endif %}>
         <i class="icon icon-search" aria-label="Search"></i>
       </a>
-      {% if site.nav_links %}
+      {% if site.primary_links %}
         <label for="nav-links" aria-label="Navigation">
           <i class="icon icon-menu"></i>
         </label>
         <input type="checkbox" id="nav-links" />
         <nav>
-          {% for nav in site.nav_links -%}
+          {% for nav in site.primary_links -%}
             <a href="{{ nav.url }}" {% if nav.blank %} target="_blank"{% endif %}>{{ nav.title }}</a>
           {% endfor %}
         </nav>
