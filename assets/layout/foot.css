@@ -1,0 +1,153 @@
+.site-foot {
+  font-size: 14px;
+  padding-left: env(safe-area-inset-left);
+  padding-right: env(safe-area-inset-right);
+}
+
+.site-foot_home {
+  font-weight: 700;
+  margin-bottom: 1em;
+}
+
+.site-foot_home a {
+  color: inherit;
+  opacity: 0.86;
+  text-decoration: none;
+  text-transform: uppercase;
+}
+
+.site-foot_links a {
+  padding: 0 0 2px 0;
+  border-bottom: 2px solid transparent;
+}
+
+.site-foot_links a + a{
+  margin-left: 1em;
+}
+
+.site-foot_links a:hover {
+  border-color: var(--nz-c-accent);
+}
+
+.foot_mast {
+  padding: 10px 24px 20px 0;
+}
+
+.foot_mast p {
+  line-height: 1.2;
+  font-size: 14px;
+  opacity: 0.8;
+}
+.foot_logo {
+  display: block;
+  max-width: 140px;
+  max-height: 80px;
+}
+
+.foot_social a {
+  display: inline-block;
+  margin-right: 8px;
+  font-size: 20px;
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.foot_social a:hover {
+  color: #fff;
+  text-decoration: none;;
+}
+
+.foot_links {
+  font-size: 14px;
+}
+
+.foot_links .link {
+  margin: 10px 0;
+}
+
+.foot_links .link_title {
+  font-weight: 600;
+  font-family: var(--nz-f-heading);
+  margin: 0 0 6px;
+}
+
+.site-foot_links a,
+.foot_links a {
+  color: rgba(255, 255, 255, 0.68);
+  text-decoration: none;
+}
+
+.site-foot_links a:hover,
+.foot_links a:hover {
+  color: rgba(255, 255, 255, 0.92);
+}
+
+.powered-by {
+  color: rgba(255, 255, 255, 0.4);
+  font-size: 13px;
+  font-weight: 600;
+}
+.powered-by a {
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.powered-by .container {
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  padding-top: 6px;
+  margin-top: 16px;
+}
+
+@media (min-width: 420px) {
+  .foot_links .links {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+  .foot_links .link {
+    flex-basis: 50%;
+  }
+}
+
+@media (min-width: 640px) {
+  .foot_links .count-3 .link {
+    flex-basis: 33.33%;
+  }
+  .foot_links .count-4 .link {
+    flex-basis: 25%;
+  }
+}
+
+@media (min-width: 820px) {
+  .foot_links .links {
+    justify-content: initial;
+  }
+  .foot .foot_links .link {
+    flex-basis: auto;
+  }
+  .foot_links .link + .link {
+    margin-left: 68px;
+  }
+
+  .site-foot_content:after {
+    display: table;
+    content: '';
+    clear: both;
+  }
+  .site-foot_home {
+    float: left;
+    margin-bottom: 0;
+  }
+  .site-foot_links {
+    float: right;
+  }
+}
+
+@media (min-width: 1000px) {
+  .foot_mast {
+    width: 300px;
+    padding-right: 60px;
+  }
+  .foot_inner {
+    display: flex;
+    justify-content: space-between;
+  }
+}

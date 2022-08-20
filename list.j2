@@ -1,9 +1,19 @@
+{% include "./_partials/common.j2" %}
+
 {% from "macros.j2" import render_item, render_navigation %}
 
-{% block style %}
-  <link href="https://fonts.googleapis.com/css?family=Roboto:300,400&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="{{ static_url }}nezu.css">
+{% block style%}
+<link rel="stylesheet" href="{{ static_url }}nezu.css">
+{% if nezu and nezu.css_files %}
+  {% for src in nezu.css_files %}
+    <link rel="stylesheet" href="{{ src }}">
+  {% endfor %}
+{% else %}
+  <link rel="preconnect" href="https://use.typkit.net" crossorigin>
+  <link rel="stylesheet" href="https://use.typekit.net/zbe5yhf.css">
+{% endif %}
 {% endblock %}
+
 
 {% macro render_author_head(user) %}
   <div class="p-author h-card" itemscope itemtype="http://schema.org/Person">
@@ -34,32 +44,32 @@
 {% endmacro %}
 
 {% block body %}
-  {% include "./_head.j2" %}
-  {% if page.type == 'tag' %}
-    <div class="info">
+  {% include "./_partials/head.j2" %}
+  <div class="body">
+    {% if page.type == 'tag' %}
+      <div class="info">
+        <div class="inner">
+          {{ render_tag_head(page.topic) }}
+        </div>
+      </div>
+    {% elif page.type == 'author' %}
+      <div class="info">
+        <div class="entry-authors inner">
+          {{ render_author_head(page.topic) }}
+        </div>
+      </div>
+    {% elif page.type == 'audio_list' and site.podcast %}
+      {% include "./_partials/podcast_info.j2" %}
+    {% else %}
+      {% include "./_partials/site_info.j2" %}
+    {% endif %}
+    <div class="main">
       <div class="inner">
-        {{ render_tag_head(page.topic) }}
+        {% for subject in page.items %}
+          {{ render_item(site, subject) }}
+        {% endfor %}
+        {{ render_navigation(site, page) }}
       </div>
-    </div>
-  {% elif page.type == 'author' %}
-    <div class="info">
-      <div class="entry-authors inner">
-        {{ render_author_head(page.topic) }}
-      </div>
-    </div>
-  {% elif page.type == 'audio_list' and site.podcast %}
-    {% include "./_podcast.j2" %}
-  {% else %}
-    {% include "./_site.j2" %}
-  {% endif %}
-  <div class="main">
-    <div class="inner">
-      {% for subject in page.items %}
-        {{ render_item(site, subject) }}
-      {% endfor %}
-      {{ render_navigation(site, page) }}
     </div>
   </div>
-  {% include "_snippets/site_foot.j2" %}
-  {% include "_snippets/brand_foot.j2" %}
 {% endblock %}

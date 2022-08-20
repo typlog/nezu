@@ -1,0 +1,105 @@
+.info {
+  display: flex;
+  align-items: center;
+  padding: 100px 0 40px;
+}
+
+.info_logo {
+  width: 120px;
+  height: 120px;
+  margin-right: 20px;
+  box-sizing: border-box;
+  flex-shrink: 0;
+}
+
+.info_logo img {
+  box-sizing: border-box;
+  max-width: 100%;
+  vertical-align: middle;
+}
+
+.info_main {
+  flex-grow: 1;
+}
+
+.info_title {
+  line-height: 1.2;
+  font-size: 36px;
+  font-weight: 400;
+  margin: 0;
+  color: var(--nz-c-text-strong);
+}
+
+.info_title a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.info_subtitle {
+  margin: 0 0 10px;
+  font-size: 22px;
+  font-weight: 300;
+  color: var(--nz-c-text-light);
+}
+.info_subtitle > p:first-of-type {
+  margin-top: 0.5em;
+}
+
+.info_subscribe {
+  display: inline-block;
+  margin-right: 8px;
+}
+
+.info_subscribe button {
+  border: 3px solid rgba(var(--nz-rc-invert), 0.86);
+  color: rgba(var(--nz-rc-invert), 0.86);
+  height: 30px;
+  border-radius: 30px;
+  padding: 0 20px;
+  background: transparent;
+  vertical-align: middle;
+  font-size: 14px;
+  font-weight: 600;
+  outline: none;
+  transition: all 0.2s ease;
+}
+
+.info_subscribe button:hover {
+  border-color: var(--nz-c-accent);
+  color: var(--nz-c-accent);
+  cursor: pointer;
+}
+
+.info_social {
+  display: flex;
+  align-items: center;
+}
+
+.info_social a {
+  color: var(--nz-c-text);
+  text-decoration: none;
+}
+
+.info_social a:hover {
+  color: var(--nz-c-accent);
+}
+
+.info_social a + a {
+  margin-left: 10px;
+}
+
+.podcast_links {
+  padding-bottom: 40px;
+}
+
+.podcast_links a {
+  display: inline-block;
+  margin: 4px;
+  text-decoration: none;
+  padding: 4px 10px;
+  border: 2px solid rgba(var(--nz-rc-invert), 0.86);
+  border-radius: 20px;
+}
+.podcast_links a:hover {
+  border-color: var(--nz-c-accent);
+}

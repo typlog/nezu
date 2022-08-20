@@ -1,21 +1,33 @@
+{% include "./_partials/common.j2" %}
+
 {% from "macros.j2" import render_subject_content, render_subject_license, render_subject_authors %}
 
-{% block style %}
-  <link href="https://fonts.googleapis.com/css?family=Roboto:300,400&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="{{ static_url }}nezu.css">
+{% block style%}
+<link rel="stylesheet" href="https://s3.typlog.com/npm/@typlog/yue@1.0.0/yue.css">
+<link rel="stylesheet" href="{{ static_url }}nezu.css">
+{% if nezu and nezu.css_files %}
+  {% for src in nezu.css_files %}
+    <link rel="stylesheet" href="{{ src }}">
+  {% endfor %}
+{% else %}
+  <link rel="preconnect" href="https://use.typkit.net" crossorigin>
+  <link rel="stylesheet" href="https://use.typekit.net/zbe5yhf.css">
+{% endif %}
 {% endblock %}
 
+
 {% block body %}
-  {% include "./_head.j2" %}
-  {% if page.cover and page.cover.src %}
-    <div class="entry-cover js-cover" data-src="{{ page.cover.src|thumbnail }}"
-         data-width="{{ page.cover.width }}" data-height="{{ page.cover.height }}">
-      <img class="u-photo" src="{{ page.cover.src|thumbnail }}" alt="{{ page.title }}">
-    </div>
-  {% else %}
-    {% include "./_site.j2" %}
-  {% endif %}
-  <div class="main">
+  {% include "./_partials/head.j2" %}
+  <div class="body">
+    {% if page.cover and page.cover.src %}
+      <div class="entry-cover js-cover" data-src="{{ page.cover.src|thumbnail }}"
+          data-width="{{ page.cover.width }}" data-height="{{ page.cover.height }}"
+          {% if page.cover.width and page.cover.height %}style="height:{{ page.cover.height / page.cover.width * 100}}vw"{% endif%}>
+        <img class="u-photo" src="{{ page.cover.src|thumbnail }}" alt="{{ page.title }} cover" width="{{ page.cover.width }}" height="{{ page.cover.height }}">
+      </div>
+    {% else %}
+      {% include "./_partials/site_info.j2" %}
+    {% endif %}
     <div class="inner">
       <article role="main" class="h-entry" itemscope itemtype="http://schema.org/Article">
         {% if page.type == 'audio' %}
@@ -39,9 +51,6 @@
         {% endif %}
         <div class="e-content js-content yue" itemprop="articleBody">
           {{ render_subject_content(site, page) }}
-          {% if page.type == 'page' %}
-            {% include "_snippets/page_qr.j2" %}
-          {% endif %}
         </div>
         {% if page.tags %}
           <div class="entry-tags">
@@ -63,6 +72,4 @@
     </div>
     {% include "_snippets/subject_foot.j2" %}
   </div>
-  {% include "_snippets/site_foot.j2" %}
-  {% include "_snippets/brand_foot.j2" %}
 {% endblock %}

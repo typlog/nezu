@@ -1,0 +1,246 @@
+.item {
+  border-top: 1px solid var(--nz-c-divider-light);
+  padding: 20px 0 40px;
+}
+
+.item:after {
+  content: '';
+  display: table;
+  clear: both;
+}
+
+.item a {
+  color: var(--nz-c-text-strong);
+  text-decoration: none;
+}
+
+.item a:hover {
+  color: var(--nz-c-accent);
+}
+
+.item-main {
+  display: block;
+  overflow: hidden;
+}
+
+.item time {
+  color: var(--nz-c-text-light);
+  font-size: 12px;
+  font-weight: 600;
+  font-family: var(--nz-f-sys-sans), sans-serif;
+  text-transform: uppercase;
+  vertical-align: middle;
+}
+
+/* Text */
+.item.Text h3,
+.item.Image h3,
+.item.Review h3,
+.item.Episode h3 {
+  font-size: 24px;
+  font-weight: 500;
+  margin: 4px 0;
+}
+
+.item.Cover h3 {
+  font-weight: 500;
+}
+
+.item.Cover h4 {
+  font-weight: 400;
+}
+
+.item-subtitle {
+  font-weight: 300;
+  font-size: 18px;
+  color: var(--nz-c-text-light);
+}
+
+/* Image */
+.item.Image .item-image,
+.item.Review .item-image {
+  float: left;
+  display: block;
+  max-width: 40%;
+  margin-right: 40px;
+}
+
+.item.Image .item-image img,
+.item.Review .item-image img {
+  max-height: 300px;
+}
+
+.item.Image .item-meta {
+  margin: 10px 0 30px;
+  color: var(--nz-c-text-light);
+  font-size: 18px;
+  font-weight: 300;
+  font-family: var(--nz-f-sys-sans), sans-serif;
+  text-transform: uppercase;
+}
+
+.item.Review img {
+  box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.1);
+  border-radius: 3px;
+}
+
+.item-review {
+  color: var(--nz-c-text-light);
+  margin: 10px 0 30px;
+}
+
+.item-review > span {
+  margin-right: 1em;
+}
+
+/* Episode */
+.item-label {
+  display: inline-block;
+  padding: 0 4px;
+  margin-right: 6px;
+  border: 1px solid var(--nz-c-divider);
+  border-radius: 16px;
+  color: var(--nz-c-text-light);
+  font-size: 11px;
+  font-weight: 600;
+  line-height: 16px;
+  vertical-align: middle;
+}
+.item.Episode .item-image {
+  display: flex;
+  float: left;
+  width: 120px;
+  height: 120px;
+  margin-right: 20px;
+}
+.item.Episode .item-image img {
+  object-fit: cover;
+}
+
+
+@media (max-width: 680px) {
+  .item.Image .item-image {
+    float: none;
+    max-width: 100%;
+    max-height: 300px;
+    margin: 0 0 10px 0;
+    text-align: center;
+    overflow: hidden;
+  }
+
+  .item.Image .item-image img {
+    max-height: none;
+  }
+
+  .item.Image .item-meta {
+    margin: 8px 0;
+  }
+
+  .item.Review .item-image {
+    margin-right: 20px;
+    max-width: 36%;
+  }
+
+  .item-review > span {
+    display: block;
+    margin: 0 0 5px;
+  }
+}
+
+
+.item-cover {
+  display: flex;
+}
+
+.item-cover_image {
+  width: 52%;
+  flex-basis: 52%;
+  box-sizing: border-box;
+}
+
+.item-cover_image > div {
+  height: 0;
+  padding-bottom: 60%;
+  background: no-repeat center;
+  background-size: cover;
+}
+
+.item-cover_inner {
+  width: 48%;
+  flex-basis: 48%;
+  padding-left: 40px;
+  box-sizing: border-box;
+}
+
+.item-cover h3 {
+  font-weight: 400;
+  font-size: 36px;
+  margin: 10px 0;
+}
+
+.item-cover h4 {
+  font-weight: 300;
+  font-size: 24px;
+  margin: 0 0 20px;
+  color: var(--nz-c-text-light);
+}
+
+/* home */
+.home-more {
+  position: relative;
+  padding: 20px 0 40px;
+}
+
+.home-more:before {
+  display: block;
+  content: '';
+  width: 30px;
+  border-top: 4px solid var(--nz-c-divider);
+  margin-bottom: 10px;
+}
+
+.home-more a {
+  color: var(--nz-c-text-strong);
+  font-size: 16px;
+  font-weight: 600;
+  text-transform: uppercase;
+  text-decoration: none;
+}
+
+.home-more a:after {
+  content: '→';
+  margin-left: 4px;
+}
+
+/* archive */
+.navigation {
+  padding: 20px 0 40px;
+}
+
+.navigation a {
+  -webkit-font-smoothing: antialiased;
+  display: inline-block;
+  font-size: 14px;
+  font-weight: 600;
+  font-family: "Helvetica Neue", "Arial", sans-serif;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: var(--nz-c-text-light);
+  padding: 6px 20px;
+  border: 1px solid var(--nz-c-divider);
+  border-radius: 40px;
+  transition: all 0.2s ease;
+}
+
+.navigation a:hover {
+  color: var(--nz-c-accent);
+  border-color: var(--nz-c-accent);
+}
+
+.navigation .prev {
+  float: left;
+}
+
+.navigation .next {
+  float: right;
+}

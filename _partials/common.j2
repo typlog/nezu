@@ -1,0 +1,51 @@
+{% from "macros.j2" import render_links, render_social_icons %}
+
+{% set nezu = query.config('nezu') %}
+{% set has_foot_nav = nezu and nezu.foot_nav %}
+
+{% block foot_html %}
+<footer class="foot{% if has_foot_nav %} dark{% endif %}">
+  {% if has_foot_nav %}
+  <div class="container">
+    <div class="foot_inner">
+      <div class="foot_mast">
+        {% if nezu.logo and nezu.logo.dark %}
+          <a class="foot_logo" {% if nezu.url%}href="{{ nezu.url }}"{% else %}href="/"{% endif%}>
+            <img src="{{ nezu.logo.dark|thumbnail('ss') }}" alt="{{ site.name }}" />
+          </a>
+        {% elif site.logo %}
+          <a class="foot_logo" href="/">
+            <img src="{{ site.logo|thumbnail('ss') }}" alt="{{ site.name }}" />
+            <span>{{ site.name }}</span>
+          </a>
+        {% else %}
+          <a class="foot_logo" href="/">
+            <span>{{ site.name }}</span>
+          </a>
+        {% endif %}
+        {% if nezu and nezu.slogan %}
+          <p>{{ nezu.slogan }}</p>
+        {% elif site.summary %}
+          <p>{{ site.summary }}</p>
+        {% endif %}
+        <div class="foot_social">
+          {{ render_social_icons(site) }}
+        </div>
+      </div>
+      <div class="foot_links">
+        {{ render_links(nezu.foot_nav) }}
+      </div>
+    </div>
+  </div>
+  {% else %}
+    {% include "_snippets/site_foot.j2" %}
+  {% endif %}
+  <div class="powered-by">
+    <div class="container">
+      Powered by <a href="https://typlog.com/?utm_source={{ site.slug }}&utm_media=theme-nezu">Typlog</a>,
+      and theme <a href="https://theme-nezu.typlog.io/?utm_source={{ site.slug }}&utm_media=foot">nezu</a> {{ theme.version }}.
+    </div>
+  </div>
+</footer>
+{% if features.foot_html %}{{ features.foot_html }}{% endif %}
+{% endblock %}

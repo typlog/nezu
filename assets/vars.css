@@ -1,0 +1,82 @@
+/**
+ * Variables with prefix --nz for NeZu
+ *
+ * --nz-c: ready to use color
+ * --nz-rc: color in rgb numbers
+ * --nz-s: size, e.g. width and height
+ * --nz-f: font family
+ */
+:root {
+  --nz-rc-base: 255, 255, 255;
+  --nz-rc-invert: 0, 0, 0;
+
+  --nz-c-bg: #fff;
+  --nz-c-bg-weak: #f9f9f9;
+  --nz-c-bg-mute: #f1f1f1;
+
+  --nz-f-sys-sans: -apple-system, "Segoe UI", Oxygen, Ubnztu, "Droid Sans", "Helvetica Neue";
+  --nz-f-sys-serif: Georgia, Palatino, "Times New Roman", Times;
+  --nz-f-cjk: "PingFang SC", "Hiragino Sans GB", "Droid Sans Fallback", "Microsoft YaHei";
+  --nz-f-mono: Menlo, Monaco, Consolas, "Courier New", monospace;
+
+  --nz-f-base: roboto, var(--nz-f-sys-sans), var(--nz-f-cjk), sans-serif;
+  --nz-f-heading: nunito-sans, var(--nz-f-sys-sans), var(--nz-f-cjk), sans-serif;
+
+  /* usually used for links */
+  --nz-rc-accent: var(--t-rc-primary);
+
+  --nz-s-head-offset: 0px;  /* there may be a banner above head */
+  --nz-s-head-height: 55px;
+  --nz-c-head-bg: var(--nz-c-bg);
+  --nz-c-head-text: var(--nz-c-text);
+  --nz-c-foot-bg: #000;
+  --nz-c-foot-text: #fff;
+
+  --nz-c-codespan: rgb(255, 248, 197);
+}
+
+.dark-theme {
+  --nz-rc-base: 0, 0, 0;
+  --nz-rc-invert: 255, 255, 255;
+
+  --nz-c-bg: #2a2b2d;
+  --nz-c-bg-weak: #3a3a3a;
+  --nz-c-bg-mute: #444;
+
+  /* usually used for links */
+  --nz-rc-accent: var(--t-rc-secondary);
+  --nz-c-codespan: rgb(255, 248, 197, 0.15);
+}
+
+:root {
+  --nz-c-text: rgba(var(--nz-rc-invert), 0.82);
+  --nz-c-text-light: rgba(var(--nz-rc-invert), 0.58);
+  --nz-c-text-strong: rgba(var(--nz-rc-invert), 0.94);
+  --nz-c-text-mute: rgba(var(--nz-rc-invert), 0.2);
+  --nz-c-divider: rgba(var(--nz-rc-invert), 0.08);
+  --nz-c-divider-light: rgba(var(--nz-rc-invert), 0.04);
+  --nz-c-accent: rgb(var(--nz-rc-accent));
+  /* set comment colors */
+  --tc-c-primary: var(--nz-c-accent);
+  --tc-c-link: var(--nz-c-accent);
+}
+
+.yue {
+  --yue-f-base: merriweather, var(--nz-f-sys-serif), var(--nz-f-cjk), serif;
+  --yue-f-quote: var(--yue-f-base);
+  --yue-f-heading: var(--nz-f-heading);
+  --yue-f-mono: var(--nz-f-mono);
+  --yue-c-strong: var(--nz-c-text-strong);
+  --yue-c-light: var(--nz-c-text-light);
+  --yue-c-accent: var(--nz-c-accent);
+  --yue-c-tr: rgba(var(--nz-rc-invert), 0.6);
+
+  --yue-c-bc: var(--nz-c-text);
+  --yue-c-bc-bg: rgba(0, 0, 0, 0.03);
+  --yue-c-bc-gutter: #f0f0f0;
+}
+
+.dark-theme .yue {
+  --yue-c-bc-bg: rgba(0, 0, 0, 0.5);
+  --yue-c-bc-gutter: rgba(0, 0, 0, 0.4);
+}

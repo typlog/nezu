@@ -1,10 +1,8 @@
-{% from "macros.j2" import render_social_icons %}
-
-<div class="info h-card">
-  <div class="inner">
+<div class="inner">
+  <div class="info h-card">
     {% if site.logo %}
       <a class="info_logo" href="{{ linkify('/') }}">
-        <img class="u-photo" src="{{ site.logo.src|thumbnail('ss') }}" alt="{{ site.name }}">
+        <img class="u-photo" src="{{ site.logo.src|thumbnail('ss') }}" alt="{{ site.name }}" width="120" height="120">
       </a>
     {% endif %}
     <div class="info_main">

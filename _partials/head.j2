@@ -1,0 +1,58 @@
+<header class="head">
+  <div class="head_wrap">
+    <div class="head_inner">
+      <div class="head_logo">
+        {% if nezu and nezu.logo %}
+          <a {% if nezu.url%}href="{{ nezu.url }}"{% else %}href="/"{% endif%}>
+            {% if nezu.logo.light %}
+              <img class="light-logo" src="{{ nezu.logo.light|thumbnail('ss') }}" alt="{{ site.name }}" height="35" />
+            {% endif %}
+            {% if nezu.logo.dark %}
+              <img class="dark-logo" src="{{ nezu.logo.dark|thumbnail('ss') }}" alt="{{ site.name }}" height="35" />
+            {% endif %}
+          </a>
+        {% elif site.logo %}
+          <a href="/">
+            <img src="{{ site.logo|thumbnail('ss') }}" alt="{{ site.name }}" width="35" height="35" />
+            <span>{{ site.name }}</span>
+          </a>
+        {% else %}
+          <a href="/">
+            <span>{{ site.name }}</span>
+          </a>
+        {% endif %}
+      </div>
+      <div id="HeadNav" class="head_links">
+        <nav class="head_primary">
+          {% if nezu and nezu.primary_nav %}
+            {{ render_links(nezu.primary_nav, 'Primary') }}
+          {% else %}
+            {{ render_links(site.primary_links, 'Primary') }}
+          {% endif %}
+        </nav>
+        <nav class="head_secondary">
+          {% if nezu and nezu.secondary_nav %}
+            {{ render_links(nezu.secondary_nav, 'Secondary') }}
+          {% else %}
+            {{ render_links(site.secondary_links, 'Secondary') }}
+          {% endif %}
+        </nav>
+      </div>
+      <div class="head_actions">
+        <div class="head_search">
+          <button type="button" class="js-search">
+            <i class="icon icon-search" aria-label="Search"></i>
+          </button>
+        </div>
+        {% include "_snippets/theme_toggle.j2" %}
+        <button type="button" class="head_menu js-toggle-menu" aria-label="mobile navigation" aria-expanded="false" aria-controls="HeadNav">
+          <span class="hamburger">
+            <span class="hamburger_1"></span>
+            <span class="hamburger_2"></span>
+            <span class="hamburger_3"></span>
+          </span>
+        </button>
+      </div>
+    </div>
+  </div>
+</header>

@@ -1,24 +1,33 @@
+{% include "./_partials/common.j2" %}
+
 {% from "macros.j2" import render_item %}
 
-{% block style %}
-  <link href="https://fonts.googleapis.com/css?family=Roboto:300,400&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="{{ static_url }}nezu.css">
+{% block style%}
+<link rel="stylesheet" href="{{ static_url }}nezu.css">
+{% if nezu and nezu.css_files %}
+  {% for src in nezu.css_files %}
+    <link rel="stylesheet" href="{{ src }}">
+  {% endfor %}
+{% else %}
+  <link rel="preconnect" href="https://use.typkit.net" crossorigin>
+  <link rel="stylesheet" href="https://use.typekit.net/zbe5yhf.css">
+{% endif %}
 {% endblock %}
 
 {% block body %}
-  {% include "./_head.j2" %}
-  {% include "./_site.j2" %}
-  <div class="main">
-    <div class="inner">
-      {% set subjects = query.latest_subjects() %}
-      {% for subject in subjects %}
-        {{ render_item(site, subject) }}
-      {% endfor %}
-      <div class="home-more">
-        <a href="{{ linkify('/archive/') }}">MORE</a>
+  {% include "./_partials/head.j2" %}
+  <div class="body">
+    {% include "./_partials/site_info.j2" %}
+    <div class="main">
+      <div class="inner">
+        {% set subjects = query.latest_subjects() %}
+        {% for subject in subjects %}
+          {{ render_item(site, subject) }}
+        {% endfor %}
+        <div class="home-more">
+          <a href="{{ linkify(site.list_url) }}">MORE</a>
+        </div>
       </div>
     </div>
   </div>
-  {% include "_snippets/site_foot.j2" %}
-  {% include "_snippets/brand_foot.j2" %}
 {% endblock %}
