@@ -60,6 +60,21 @@
   margin-right: var(--rich-pad);
 }
 
+.e-content > pre {
+  overflow: auto;
+}
+
+.e-content .toc {
+  background: var(--nz-c-bg-weak);
+  padding: 10px 16px;
+  border-radius: 4px;
+}
+
+.e-content .toc > ul {
+  font-size: 0.86em;
+  margin: 14px 0 10px 10px;
+}
+
 @media (min-width: 860px) {
   .e-content {
     --rich-pad: -20px;

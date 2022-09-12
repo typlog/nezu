@@ -11,11 +11,11 @@
       <div class="foot_mast">
         {% if nezu.logo and nezu.logo.dark %}
           <a class="foot_logo" {% if nezu.url%}href="{{ nezu.url }}"{% else %}href="/"{% endif%}>
-            <img src="{{ nezu.logo.dark|thumbnail('ss') }}" alt="{{ site.name }}" />
+            <img src="{{ nezu.logo.dark|thumbnail('ss') }}" alt="{{ site.name }}" height="60" />
           </a>
         {% elif site.logo %}
           <a class="foot_logo" href="/">
-            <img src="{{ site.logo|thumbnail('ss') }}" alt="{{ site.name }}" />
+            <img src="{{ site.logo|thumbnail('ss') }}" alt="{{ site.name }}" width="60" height="60" />
             <span>{{ site.name }}</span>
           </a>
         {% else %}
@@ -47,5 +47,5 @@
     </div>
   </div>
 </footer>
-{% if features.foot_html %}{{ features.foot_html }}{% endif %}
+{% if features.foot_html %}{{ features.foot_html|safe }}{% endif %}
 {% endblock %}

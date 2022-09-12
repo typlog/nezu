@@ -103,3 +103,9 @@
 .podcast_links a:hover {
   border-color: var(--nz-c-accent);
 }
+
+@media (max-width: 640px) {
+  .info_logo {
+    display: none;
+  }
+}
