@@ -4,12 +4,14 @@
 
 .e-content a {
   color: var(--nz-c-text-strong);
-  text-decoration: underline var(--yue-c-accent);
+  text-decoration: underline;
+  text-decoration-color: var(--yue-c-accent);
 }
 
 .e-content del {
   color: var(--nz-c-text-light);
-  text-decoration: line-through var(--yue-c-accent);
+  text-decoration: line-through;
+  text-decoration-color: var(--yue-c-accent);
 }
 
 .e-content a:hover,

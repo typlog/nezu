@@ -1,3 +1,6 @@
+html {
+  scroll-behavior: smooth;
+}
 body {
   width: 100%;
   min-width: 320px;
@@ -76,15 +79,4 @@ ul.links ul {
   background-color: var(--nz-c-foot-bg);
   margin-top: 48px;
   padding: 24px 24px;
-}
-
-@media(min-width: 960px) {
-  .head {
-    position: fixed;
-    width: 100%;
-  }
-
-  .body {
-    padding-top: calc(var(--nz-s-head-offset) + var(--nz-s-head-height));
-  }
 }
