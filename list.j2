@@ -31,8 +31,8 @@
           </a>
         {% endif %}
       </div>
-      {% if user.bio %}
-        <div class="author_bio" itemprop="description">{{ user.bio|safe }}</div>
+      {% if user.bio_html %}
+        <div class="author_bio" itemprop="description">{{ user.bio_html|safe }}</div>
       {% endif %}
     </div>
   </div>
