@@ -38,7 +38,18 @@
     </div>
   </div>
   {% else %}
-    {% include "_snippets/site_foot.j2" %}
+    <div class="site-foot">
+      <div class="site-foot_links">
+        <a href="{{ linkify(site.list_url) }}">Archive</a>
+        {% if site.posts_url and site.audios_url %}
+          <a href="{{ linkify(site.posts_url) }}">Posts</a>
+          <a href="{{ linkify(site.audios_url) }}">Episodes</a>
+        {% endif %}
+        {% if features.photo %}
+          <a href="{{ linkify('/moments/') }}">Moments</a>
+        {% endif %}
+      </div>
+    </div>
   {% endif %}
   <div class="powered-by">
     <div class="container">

@@ -4,16 +4,8 @@
   padding-right: env(safe-area-inset-right);
 }
 
-.site-foot_home {
-  font-weight: 700;
-  margin-bottom: 1em;
-}
-
-.site-foot_home a {
-  color: inherit;
-  opacity: 0.86;
-  text-decoration: none;
-  text-transform: uppercase;
+.site-foot_links {
+  text-align: right;
 }
 
 .site-foot_links a {
@@ -125,19 +117,6 @@
   }
   .foot_links .link + .link {
     margin-left: 68px;
-  }
-
-  .site-foot_content:after {
-    display: table;
-    content: '';
-    clear: both;
-  }
-  .site-foot_home {
-    float: left;
-    margin-bottom: 0;
-  }
-  .site-foot_links {
-    float: right;
   }
 }
 

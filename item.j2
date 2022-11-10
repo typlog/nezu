@@ -66,7 +66,19 @@
       </article>
       {% if page.type != 'page' %}
         <div class="entry-block">
-          {% include "_snippets/subject_share.j2" %}
+          <div class="entry-enjoy">
+            <button class="enjoy js-enjoy">Enjoy</button>
+          </div>
+          <div class="entry-share">
+            <a class="js-share" data-type="tw" href="#" aria-label="Share to Twitter"><i class="icon icon-twitter"></i></a>
+            {% if page.lang in ('zh', 'zh-hans') %}
+              <a class="js-share" data-type="wb" href="#" aria-label="分享到微博"><i class="icon icon-weibo"></i></a>
+              <a class="js-share" data-type="wx" href="#" aria-label="分享到微信"><i class="icon icon-wechat"></i></a>
+            {% else %}
+              <a class="js-share" data-type="fb" href="#" aria-label="Share to Facebook"><i class="icon icon-facebook"></i></a>
+            {% endif %}
+            <a class="js-share" data-type="tg" href="#" aria-label="Share to Telegram"><i class="icon icon-telegram"></i></a>
+          </div>
         </div>
       {% endif %}
     </div>
