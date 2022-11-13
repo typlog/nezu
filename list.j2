@@ -64,12 +64,14 @@
       <div class="info">
         <div class="inner">
           <h1 class="info_title">{{ page.title }}</h1>
+          {% if page.years %}
           <div class="info_years">
-            {% for year in page.years %}
+            {% for year in page.years|reverse %}
               {%- set url = page.base_url + year|string + '/' -%}
               <a{% if page.year == year %} class="active"{% endif %} href="{{ linkify(url) }}">{{ year }}</a>
             {% endfor %}
           </div>
+          {% endif %}
         </div>
       </div>
     {% endif %}
