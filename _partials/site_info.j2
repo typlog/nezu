@@ -1,8 +1,8 @@
 <div class="inner">
   <div class="info h-card">
-    {% if site.logo %}
+    {% if site.icon %}
       <a class="info_logo" href="{{ linkify('/') }}">
-        <img class="u-photo" src="{{ site.logo.src|thumbnail('ss') }}" alt="{{ site.name }}" width="120" height="120">
+        <img class="u-photo" src="{{ site.icon.src|thumbnail('ss') }}" alt="{{ site.name }}" width="120" height="120">
       </a>
     {% endif %}
     <div class="info_main">

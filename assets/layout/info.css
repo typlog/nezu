@@ -1,7 +1,9 @@
 .info {
+  padding: 100px 0 40px;
+}
+.info.h-card {
   display: flex;
   align-items: center;
-  padding: 100px 0 40px;
 }
 
 .info_logo {
@@ -28,6 +30,24 @@
   font-weight: 400;
   margin: 0;
   color: var(--nz-c-text-strong);
+}
+
+.info_years {
+  margin-top: 1em;
+}
+
+.info_years a {
+  display: inline-block;
+  margin: 4px;
+  font-size: 14px;
+  font-weight: 600;
+  text-decoration: none;
+  padding: 2px 18px;
+  border: 2px solid rgba(var(--nz-rc-invert), 0.2);
+  border-radius: 20px;
+}
+.info_years a.active {
+  border-color:rgba(var(--nz-rc-invert), 0.8)
 }
 
 .info_title a {
