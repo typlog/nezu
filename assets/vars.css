@@ -70,6 +70,7 @@
   --yue-c-light: var(--nz-c-text-light);
   --yue-c-accent: var(--nz-c-accent);
   --yue-c-tr: rgba(var(--nz-rc-invert), 0.6);
+  --yue-c-divider: var(--nz-c-divider);
 
   --yue-c-bc: var(--nz-c-text);
   --yue-c-bc-bg: rgba(0, 0, 0, 0.03);
