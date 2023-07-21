@@ -3,7 +3,7 @@
 {% from "macros.j2" import render_subject_content, render_subject_license, render_subject_authors %}
 
 {% block style%}
-<link rel="stylesheet" href="https://s3.typlog.com/npm/@typlog/yue@1.0.0/yue.css">
+<link rel="stylesheet" href="https://s3.typlog.com/npm/@typlog/yue@1.1.1/yue.css">
 <link rel="stylesheet" href="{{ static_url }}nezu.css">
 {% if nezu and nezu.css_files %}
   {% for src in nezu.css_files %}
@@ -25,10 +25,8 @@
           {% if page.cover.width and page.cover.height %}style="height:{{ page.cover.height / page.cover.width * 100}}vw"{% endif%}>
         <img class="u-photo" src="{{ page.cover.src|thumbnail }}" alt="{{ page.title }} cover" width="{{ page.cover.width }}" height="{{ page.cover.height }}">
       </div>
-    {% else %}
-      {% include "./_partials/site_info.j2" %}
     {% endif %}
-    <div class="inner">
+    <div class="main inner">
       <article role="main" class="h-entry" itemscope itemtype="http://schema.org/Article">
         {% if page.type == 'audio' %}
           {{ render_subject_authors(site, page) }}
