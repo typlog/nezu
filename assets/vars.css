@@ -39,8 +39,8 @@
   --nz-rc-base: 0, 0, 0;
   --nz-rc-invert: 255, 255, 255;
 
-  --nz-c-bg: #2a2b2d;
-  --nz-c-bg-weak: #3a3a3a;
+  --nz-c-bg: #121212;
+  --nz-c-bg-weak: #212833;
   --nz-c-bg-mute: #444;
 
   /* usually used for links */
@@ -71,13 +71,4 @@
   --yue-c-accent: var(--nz-c-accent);
   --yue-c-tr: rgba(var(--nz-rc-invert), 0.6);
   --yue-c-divider: var(--nz-c-divider);
-
-  --yue-c-bc: var(--nz-c-text);
-  --yue-c-bc-bg: rgba(0, 0, 0, 0.03);
-  --yue-c-bc-gutter: #f0f0f0;
-}
-
-.dark-theme .yue {
-  --yue-c-bc-bg: rgba(0, 0, 0, 0.5);
-  --yue-c-bc-gutter: rgba(0, 0, 0, 0.4);
 }

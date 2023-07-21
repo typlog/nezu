@@ -1,3 +1,7 @@
+.main {
+  padding-top: 4rem;
+}
+
 .entry-cover {
   padding: 0;
   max-height: 74vh;
@@ -5,8 +9,13 @@
   background: var(--nz-c-bg-weak) no-repeat center;
   background-size: cover;
 }
+
 .entry-cover > img {
   display: none;
+}
+
+.entry-cover + .main {
+  padding-top: 0;
 }
 
 h1.p-name {
